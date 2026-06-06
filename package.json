@@ -1,0 +1,50 @@
+{
+  "name": "polite-fetch",
+  "version": "0.1.0",
+  "description": "Rate-limit-aware fetch wrapper that parses Retry-After, X-RateLimit-*, and provider-specific headers (OpenAI, Anthropic, GitHub, Stripe, Shopify) and waits exactly as long as the server asks — instead of dumb exponential backoff.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "fetch",
+    "rate-limit",
+    "retry",
+    "retry-after",
+    "backoff",
+    "429",
+    "openai",
+    "anthropic",
+    "github",
+    "stripe",
+    "shopify",
+    "ratelimit"
+  ],
+  "author": "@ydaymad",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^1.5.0"
+  }
+}
